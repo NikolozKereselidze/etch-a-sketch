@@ -34,6 +34,15 @@ inputElement.addEventListener("change", (el) => {
   console.log(dimensions);
 });
 
+function randomColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  const rgbColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+  return rgbColor;
+}
 
 const gridLayout = function () {
   for (let i = 0; i < dimensions; i++) {
@@ -44,7 +53,7 @@ const gridLayout = function () {
       const square = document.createElement("div");
       square.style = "flex-grow: 1; border: 1px solid white; "; // Set flex-grow to evenly distribute squares in a row
       square.addEventListener("mouseover", (el) => {
-        el.target.style.backgroundColor = "white";
+        el.target.style.backgroundColor = randomColor();
       });
       row.appendChild(square);
     }
